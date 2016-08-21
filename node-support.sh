@@ -7,7 +7,7 @@
 
 # Source the logger script functions; it is located in the
 # same directory as this file.
-if [ -z "$(type -t warn)" ]
+if [ -z "$(type -t loggerSourced)" ]
 then
   . $(dirname $BASH_SOURCE)/logger.sh
 fi

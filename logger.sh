@@ -46,3 +46,7 @@ die() {
   error "$(timestamp) $@"
   exit 1
 }
+
+loggerSourced() {
+  info "Logger.sh is sourced"
+}
