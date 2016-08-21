@@ -8,6 +8,7 @@
 # * queueCommand
 # * invokeQueuedCommands
 # * clearQueuedCommands
+# * invokeRemoteCommand
 
 # Source the logger script functions; it is located in the
 # same directory as this file.
@@ -141,6 +142,12 @@ clearQueuedCommands() {
   unset commandFile
 }
 
+#
+# Invokes the specified command on the specified server.
+#
+#  Arg 1: The FQDN of the server on which to invoke the command
+#  Arg *: The command to be invoked on the server.
+#
 invokeRemoteCommand() {
   local server=$1
   shift 1
