@@ -61,11 +61,11 @@ copyReleasePackage() {
 
   # Create the releases directory
   info "Creating the release directory ${releaseDir}"
-  ssh -i $(identityParameter) ${server} "umask 002 && mkdir -p ${releaseDir}"
+  ssh $(identityParameter) ${server} "umask 002 && mkdir -p ${releaseDir}"
 
   # Now unpack the release package into the release directory
   info "Unpacking the package..."
-  ssh -i $(identityParameter) ${server} "umask 002 && tar jxf /tmp/${packageName} -C ${releaseDir}"
+  ssh $(identityParameter) ${server} "umask 002 && tar jxf /tmp/${packageName} -C ${releaseDir}"
 }
 
 #
