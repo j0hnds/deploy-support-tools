@@ -77,7 +77,7 @@ getRevision() {
   local repoName=$2
   local branch=$3
 
-  cd ${repo_dir}/${repoName} && \
+  cd ${repoDir}/${repoName} && \
     git rev-list --max-count=1 --abbrev-commit ${branch}
 }
 
