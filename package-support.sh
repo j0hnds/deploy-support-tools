@@ -35,8 +35,8 @@ packageName() {
 createReleasePackage() {
   local sourceDir=$1
   local repoName=$2
-  local packageDir=$4
-  local packageName=$3
+  local packageDir=$3
+  local packageName=$4
 
   if [ ! -d ${packageDir} ]
   then
