@@ -5,6 +5,8 @@
 #
 # Assumes that you are using NVM; who wouldn't be?
 
+. ${HOME}/.nvm/nvm.sh
+
 # Source the logger script functions; it is located in the
 # same directory as this file.
 if [ -z "$(type -t loggerSourced)" ]
