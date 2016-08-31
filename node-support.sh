@@ -31,3 +31,38 @@ prepareNodeModules() {
   cd ${sourceDir}/${repoName} && \
     nvm exec ${nodeVersion} npm install
 }
+
+# 
+# Makes sure all the required bower components are loaded for 
+# the specified source directory.
+#
+#  Arg 1: The base path to the source directory.
+#  Arg 2: The name of the source directory.
+#  Arg 3: The version of node to use.
+#
+prepareBowerComponents() {
+  local sourceDir=$1
+  local repoName=$2
+  local nodeVersion=$3
+
+  info "Running bower install on ${repoName}"
+  cd ${sourceDir}/${repoName} && \
+    nvm exec $nodeVersion bower install
+}
+
+# 
+# Runs gulp prod in the current directory.
+#
+#  Arg 1: The base path to the source directory.
+#  Arg 2: The name of the source directory.
+#  Arg 3: The version of node to use.
+#
+runGulp() {
+  local sourceDir=$1
+  local repoName=$2
+  local nodeVersion=$3
+
+  info "Running gulp prod on ${repoName}"
+  cd ${sourceDir}/${repoName} && \
+    nvm exec $nodeVersion gulp prod
+}
