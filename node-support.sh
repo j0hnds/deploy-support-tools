@@ -26,10 +26,16 @@ prepareNodeModules() {
   local sourceDir=$1
   local repoName=$2
   local nodeVersion=$3
+  local nodeEnvironment=$4
+
+  if [ -z "$nodeEnvironment" ]
+  then
+    envArg="-only=$nodeEnvironment"
+  fi
 
   info "Running npm install on ${repoName}"
   cd ${sourceDir}/${repoName} && \
-    nvm exec ${nodeVersion} npm install
+    nvm exec ${nodeVersion} npm install $envArg
 }
 
 # 
