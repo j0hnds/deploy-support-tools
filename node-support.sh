@@ -28,7 +28,7 @@ prepareNodeModules() {
   local nodeVersion=$3
   local nodeEnvironment=$4
 
-  if [ -z "$nodeEnvironment" ]
+  if [ -n "$nodeEnvironment" ]
   then
     envArg="-only=$nodeEnvironment"
   fi
