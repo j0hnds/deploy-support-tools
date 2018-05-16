@@ -60,8 +60,8 @@ updateGitMirror() {
   local repoName=$2
 
   info "Updating mirror: ${repoName}"
-  cd ${repoDir}/${repoName} && \
-    git remote update
+  (cd ${repoDir}/${repoName} && \
+    git remote update)
 }
 
 #
@@ -113,12 +113,12 @@ extractBranchToSourceDirectory() {
     mkdir -p ${sourceDir}/${repoName}
   fi
 
-  cd ${repoDir}/${repoName} && \
-    (git archive ${branch} | tar -x -f - -C ${sourceDir}/${repoName})
+  (cd ${repoDir}/${repoName} && \
+    git archive ${branch} | tar -x -f - -C ${sourceDir}/${repoName})
 
-  cd ${sourceDir}/${repoName} && \
+  (cd ${sourceDir}/${repoName} && \
     echo $(getRevision ${repoDir} ${repoName} ${branch}) >> REVISION && \
-    echo $branch > APP_VERSION
+    echo $branch > APP_VERSION)
 }
 
 #
